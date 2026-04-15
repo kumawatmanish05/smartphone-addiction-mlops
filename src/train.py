@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score, classification_report
+from sklearn.utils import compute_sample_weight
 
 from src.preprocessing import load_data, clean_data
 from src.feature_engineering import create_features
@@ -46,13 +47,19 @@ def main():
     print("✂️ Data split complete")
 
     # -------- MODEL --------
-    model = RandomForestClassifier(
-    n_estimators=300,
-    max_depth=10,
-    class_weight='balanced',
+    from sklearn.ensemble import GradientBoostingClassifier
+
+    model = GradientBoostingClassifier(
+    n_estimators=200,
+    learning_rate=0.1,
+    max_depth=3,
     random_state=42
     )
-    model.fit(X_train, y_train)
+    from sklearn.utils.class_weight import compute_sample_weight
+
+    sample_weights = compute_sample_weight(class_weight='balanced', y=y_train)
+
+    model.fit(X_train, y_train, sample_weight=sample_weights)
     print("🤖 Model trained")
 
     # -------- PREDICTION --------
