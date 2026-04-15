@@ -32,6 +32,8 @@ def main():
     # Encode target
     le = LabelEncoder()
     df[target] = le.fit_transform(df[target])
+    joblib.dump(le, "models/label_encoder.pkl")
+    print("🔤 Target encoded")
 
     # -------- FEATURES --------
     X = df.drop(columns=['addiction_level', 'addicted_label'])
