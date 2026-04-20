@@ -9,7 +9,7 @@
 - 📊 Data Cleaning & Feature Engineering Pipeline  
 - 🤖 Machine Learning Model (Multi-class Classification)  
 - ⚙️ Modular Code Structure (`src/`)  
-- 🌐 FastAPI for Real-time Predictions  
+- 🌐 FastAPI for Real-time Predictions.
 - 📦 Model & Encoder Persistence using `joblib`  
 - 📈 Production-ready ML workflow  
 
