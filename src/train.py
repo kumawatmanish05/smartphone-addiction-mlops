@@ -113,6 +113,9 @@ def main():
     print("\nClassification Report:\n")
     print(classification_report(y_test, y_pred))
 
+    #Save Features for Streamlit
+    joblib.dump(X.columns.tolist(), "models/features.pkl")
+
     # 🔹 Save model
     joblib.dump(model, "models/model.pkl")
 
