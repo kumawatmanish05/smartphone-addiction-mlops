@@ -11,3 +11,7 @@ seaborn
 jupyter
 notebook
 plotly
+pandas
+scikit-learn
+xgboost
+streamlit
